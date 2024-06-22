@@ -12,6 +12,10 @@ public class ProxyPattern {
     }
 }
 
+/**
+ * 기존 클래스에 기능을 추가하고 싶을때, 기존 코드를 수정하지않고, 새로운 Proxy클래스를 만듬
+ * O -> OCP 원칙
+ */
 class DoorManProxy extends DoorMan {
     @Override
     public void 쫓아내(Animal animal) {
