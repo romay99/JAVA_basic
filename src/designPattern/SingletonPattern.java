@@ -2,7 +2,7 @@ package designPattern;
 
 public class SingletonPattern {
 
-    private static SingletonPattern singletonPattern = new SingletonPattern();
+    private static final SingletonPattern singletonPattern = new SingletonPattern();
 
     /**
      * 생성자를 private 로 선언하여 클래스 생성을 막음
