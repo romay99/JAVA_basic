@@ -2,8 +2,15 @@ package dataStructure;
 
 public class LinkedListDemo {
     public static void main(String[] args) {
-        LinkedList list = new LinkedList(new Node(1,null));
+//        LinkedList list = new LinkedList(new Node(1,null));
+        LinkedList2 list = new LinkedList2();
         list.addData(10);
+        list.addData(12);
+        list.addData(13);
+        list.addData(14);
+        list.removeData(12);
+        list.removeData(10);
+        list.removeData(14);
 
         list.showAllData();
 
@@ -95,3 +102,64 @@ class LinkedList { // 직접구현한 링크드리스트
         }
     }
 }
+// LinkedList 을 상속받은 LinkedList2
+class LinkedList2 extends LinkedList{
+
+    public LinkedList2() {
+    }
+
+    public LinkedList2(Node head) {
+        super(head);
+    }
+    // 데이터 추가 메서드 업그레이드
+    // 선택한 데이터 위치 앞에 노드 추가
+    public void addData(int data, Integer beforeData){
+        if(this.head == null) {
+            this.head = new Node(data, null);
+            return;
+        } else if(beforeData == null) {
+            Node cur = this.head;
+            while(cur.next != null){
+                cur = cur.next;
+            }
+            cur.next = new Node(data, null);
+            return;
+        }
+        Node cur = this.head;
+        Node pre = cur;
+        while (cur != null) {
+            if (cur.data == beforeData) {
+                if (cur == this.head) {
+                    this.head = new Node(data,this.head);
+                } else {
+                    pre.next = new Node(data,cur);
+                }
+                break;
+            }
+            pre = cur;
+            cur = cur.next;
+        }
+    }
+
+    public void removeData(int data) {
+        if(this.isEmpty()) {
+            System.out.println("리스트가 비어있습니다.");
+            return;
+        }
+        Node cur = this.head;
+        Node pre = cur;
+        while (cur != null) {
+            if (cur.data == data) {
+                if(cur == this.head){
+                    this.head = cur.next;
+                } else {
+                    pre.next = cur.next;
+                }
+                break;
+            }
+            pre = cur;
+            cur = cur.next;
+        }
+    }
+}
+
