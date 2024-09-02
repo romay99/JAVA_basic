@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.Scanner;
 
-public class JavaInput {
+public class ConsoleInput {
     public static void referInputStream() throws IOException {
         //System.in = 1개의 값만 가져올 수 있음
         System.out.print("입력 : ");

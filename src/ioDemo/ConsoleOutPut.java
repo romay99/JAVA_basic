@@ -1,6 +1,6 @@
 package ioDemo;
 
-public class JavaOutPut {
+public class ConsoleOutPut {
     public static void main(String[] args) {
         System.out.println("Hello"); // Enter 키 포함
         System.out.print("Word"); // 줄바꿈 없음
